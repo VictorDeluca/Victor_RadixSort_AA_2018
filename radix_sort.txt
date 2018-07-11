@@ -1,0 +1,26 @@
+Radix Sort: Complexidade
+O(K*N), onde K seria o comprimento de cada número.
+Para demonstrar a complexidade do Radix Sort, utilizaremos a versão de ordenação por uma Trie. Nessa versão, armazenamos todos os valores em uma Trie (Estrutura de dados em Strings)
+de forma que cada nó possua 10 nós "filhos", representando os dígitos de 0 a 10. Inserir um valor em uma Trie pode ser feito utilizando o pseudocódigo abaixo:
+
+insert(s,root){
+	if(s == "") mark_as_leaf()
+	
+	root = root::child(s[last])
+	s.remove_last()
+	insert(s,root)
+}
+
+Onde go_to_node aloca novos nós caso necessário. Assumindo que s.remove_last() e root::child possam ser obtidos em tempo constante (Eles podem), a relação de recorrência é dada por:
+T(0) = 1
+T(N) = 1 + T(N-1)
+T(0) = N + T(N-N) = N + T(0) + 1 = N + 1
+
+Ou seja, a inserção possui custo O(N), onde N é o número de dígitos do número.
+O pior caso do Radix Sort ocorre quando todos os valores possuem o mesmo comprimento K, para um K qualquer, quando a complexidade passa a ser O(K*N), conforme especificado anteriormente.
+Isso ocorre pois são necessárias N inserções em uma Trie, cada uma possuindo custo K.
+
+Para percorrer os valores ordenados, é necessário fazer uma busca em largura na Trie. O custo de uma busca em largura é O(V + E), onde V é o número de vértices no grafo e E é o número
+de arestas, mas em uma Trie o número de arestas é igual ao número de vértices (Para cada aresta, um novo vértice é criado), portanto o custo pode ser reduzido a O(V).
+O número de vértices na Trie, no pior caso, é K*N, quando nenhum número possui prefixos em comum. Ou seja, pergorrer a Trie gerada também possui custo O(K*N). Portanto, a complexidade
+final do Radix Sort utilizando uma Trie é O(K*N).
