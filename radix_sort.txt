@@ -6,7 +6,7 @@ de forma que cada nó possua 10 nós "filhos", representando os dígitos de 0 a 
 insert(s,root){
 	if(s == "") mark_as_leaf()
 	
-	root = root::child(s[last])
+	root = go_to_node(root::child(s[last]))
 	s.remove_last()
 	insert(s,root)
 }
