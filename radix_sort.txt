@@ -22,5 +22,5 @@ Isso ocorre pois são necessárias N inserções em uma Trie, cada uma possuindo
 
 Para percorrer os valores ordenados, é necessário fazer uma busca em largura na Trie. O custo de uma busca em largura é O(V + E), onde V é o número de vértices no grafo e E é o número
 de arestas, mas em uma Trie o número de arestas é igual ao número de vértices (Para cada aresta, um novo vértice é criado), portanto o custo pode ser reduzido a O(V).
-O número de vértices na Trie, no pior caso, é K*N, quando nenhum número possui prefixos em comum. Ou seja, pergorrer a Trie gerada também possui custo O(K*N). Portanto, a complexidade
+O número de vértices na Trie, no pior caso, é K*N, quando nenhum número possui prefixos em comum. Ou seja, percorrer a Trie gerada também possui custo O(K*N). Portanto, a complexidade
 final do Radix Sort utilizando uma Trie é O(K*N).
